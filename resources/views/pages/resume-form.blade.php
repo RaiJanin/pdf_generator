@@ -145,13 +145,13 @@
                                 </div>
                                 <div class="md:col-span-2">
                                     <h3 class="text-gray-800 font-bold text-md">Awards<span class="text-gray-500 ml-3">(optional)</span></h3>
-                                    <div id="sch-awards-container" class="rounded-lg border-2 border-slate-300">
-                                        <div class="sch-awards-item mt-3 ml-3 mr-3">
+                                    <div id="first-sch-awards-container" class="rounded-lg border-2 border-slate-300">
+                                        <div class="first-sch-awards-item mt-3 ml-3 mr-3">
                                             <label for="sch_award" class="block text-sm font-semibold text-gray-700 mb-1">Award 1</label>
                                             <textarea id="sch_award" name="school_bg[0][sch_award][]" rows="4" class="w-full px-4 py-2 border-b-2 border-gray-600 focus:outline-none focus:border-b-3 focus:border-cyan-500 transition duration-300 resize-vertical"></textarea>
                                         </div>
-                                        <div class="relative group inline-block mt-6">
-                                            <button type="button" id="sch-award-btn" class="text-sm bg-emerald-400 px-3 py-2 rounded-md shadow-md focus:bg-emerald-300 hover:shadow-inner hover:shadow-emerald-600 transition-all duration:300 mt-4">
+                                        <div class="first-sch-awrd-btn-grp relative group inline-block mt-6">
+                                            <button type="button" id="first-sch-award-btn" class="text-sm bg-emerald-400 px-3 py-2 rounded-md shadow-md focus:bg-emerald-300 hover:shadow-inner hover:shadow-emerald-600 transition-all duration:300 mt-4">
                                                 Add Another Award<i class="fa-solid fa-plus ml-2 text-slate-500"></i>
                                             </button>
                                             <span class="absolute -top-3 left-3/4 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 [transition-delay:300ms] pointer-events-none whitespace-nowrap shadow-md">
