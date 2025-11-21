@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const jobDescContainer = newWorkExpItem.querySelector('.job-desc-container');
         const addJobDescBtn = newWorkExpItem.querySelector('.add-job-desc');
-
+        
         let jobDescCount = jobDescContainer.querySelectorAll('.job-desc-item').length || 1;
 
         addJobDescBtn.addEventListener('click', function () {
@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <textarea name="work_exp[${workExpIndex}][job_desc][]" rows="3" class="w-full px-4 py-2 border-b-2 border-gray-600 focus:border-cyan-500 outline-none resize-vertical"></textarea>
             `;
-            jobDescContainer.insertBefore(newDesc, document.querySelector('.add-jbdsc-btn-group'));
+
+            jobDescContainer.insertBefore(newDesc, newWorkExpItem.querySelector('.add-jbdsc-btn-group'));
 
             newDesc.querySelector('.rm-job-desc').addEventListener('click', function () {
                 jobDescContainer.classList.remove('animate-fadeIn');

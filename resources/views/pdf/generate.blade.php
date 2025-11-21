@@ -108,6 +108,9 @@
                 <td>
                     <span class="section-head">HOW TO REACH ME</span>
                     <br></br>
+                    <strong>Address:</strong><br>
+                    <span class="text">{{ $appli_addre }}</span>
+                    <br>
                     <strong>Phone:</strong><br>
                     <span class="text">{{ $contct_num }}</span>
                     <br>

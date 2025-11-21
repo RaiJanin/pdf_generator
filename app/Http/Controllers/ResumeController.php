@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\ApplicantNoDatabase;
+use App\Services\ResumeFormDataBuilder;
 
 class ResumeController extends Controller
 {
@@ -20,20 +20,20 @@ class ResumeController extends Controller
 
     public function seePreview() 
     {
-        return view('pdf.pdf-blade');
+        return view('pages.pdf-template.template-1');
     }
 
-    public function store(Request $request, ApplicantNoDatabase $applicant)
+    public function store(Request $request)
     {
-        $data = $applicant->formContents($request);
+        $data = ResumeFormDataBuilder::formContents($request->all());
         //return view('preview-blade', compact($data));
 
         return response()->json($data);
     }
 
-    public function download(Request $request, ApplicantNoDatabase $applicant)
+    public function download(Request $request)
     {
-        $data = $applicant->formContents($request);
+        $data = ResumeFormDataBuilder::formContents($request->all());
 
         $pdf = Pdf::loadView('pdf.generate', $data);
         $fileName = 'Resume_' . $data['appli_name'] . '_' . now()->format('Ymd_His') . '.pdf';

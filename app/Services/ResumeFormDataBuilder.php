@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Services;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-
-class ApplicantNoDatabase extends Model
+class ResumeFormDataBuilder
 {
-    public static function formContents(Request $request)
+    public static function formContents(array $contents)
     {
         $workExps = [];
         $schoolBgItems = [];
 
-        foreach($request->work_exp as $company)
+        foreach($contents['work_exp'] as $company)
         {
             $workExps[] = [
                 'job_company' => $company['job_company'],
@@ -22,7 +19,7 @@ class ApplicantNoDatabase extends Model
             ];
         }
 
-        foreach($request->school_bg as $school)
+        foreach($contents['school_bg'] as $school)
         {
             $schoolBgItems[] = [
                 'degree' => $school['bach_degr'],
@@ -32,15 +29,17 @@ class ApplicantNoDatabase extends Model
             ];
         }
         return [
-            'appli_name' => $request->appli_firstName.' '.$request->appli_lastName,
-            'appli_posi' => $request->appli_posi,
-            'appli_addre' => $request->appli_addre,
-            'appli_email' => $request->appli_email,
-            'contct_num' => $request->contct_num,
-            'appli_fb' => $request->appli_fb,
-            'skills' => $request->appli_skills,
+            'appli_name' => $contents['appli_firstName'].' '.$contents['appli_lastName'],
+            'appli_posi' => $contents['appli_posi'],
+            'appli_addre' => $contents['appli_addre'],
+            'appli_email' => $contents['appli_email'],
+            'contct_num' => $contents['contct_num'],
+            'appli_fb' => $contents['appli_fb'],
+            'skills' => $contents['appli_skills'],
             'work_items' => $workExps,
             'schools' => $schoolBgItems
         ];
     }
+
+    private string $filepath = '';
 }

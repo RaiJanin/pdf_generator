@@ -185,3 +185,7 @@
         </div>
     </form>
 @endsection
+
+@section('scripts')
+    @include('includes.resume-form-modules')
+@endsection
